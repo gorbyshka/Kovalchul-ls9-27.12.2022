@@ -27,8 +27,8 @@ function doMath(x, znak, y) {
         case '%':
             result = x % y;
             break;
-        case '^':
-            result = x ^ y;
+        case '**':
+            result = x ** y;
             break;
         default:
             alert('Error');
