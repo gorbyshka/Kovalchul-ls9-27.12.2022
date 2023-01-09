@@ -4,16 +4,16 @@
 // Значення всіх елементів всіх масивів задає користувач.
 
 function upArray() {
-    let arr = [];
-    let num =+ prompt("Введите количество массивов в первом массиве");
+    const arr = [];
+    const num =+ prompt("Введите количество массивов в первом массиве");
 
     for (let i = 0; i < num; i++) {
         arr.push([]);
 
-        let num2 = prompt("Введите количество елементов" + (i + 1));
-        
+        const num2 = prompt("Введите количество елементов" + (i + 1));
+
         for (let j = 0; j < num2; j++) {
-            let elem = Number(prompt("Введите элемент" + ( j + 1)));
+            let elem = Number(prompt("Введите элемент" + (j + 1)));
             arr[i].push([elem]);
         }
     }

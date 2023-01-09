@@ -27,13 +27,13 @@ function doMath(x, znak, y) {
         case '%':
             result = x % y;
             break;
-        case '**':
+        case '^':
             result = x ** y;
             break;
         default:
             alert('Error');
     }
-    return alert(x + znak + y + '=' + result);
+    return result;
 }
 
-doMath(x, znak, y);
+alert(doMath(x, znak, y));
