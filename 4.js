@@ -6,31 +6,50 @@
 
 const baseString = prompt('Введите строку', 'hello world');
 const removeSymbol = prompt('Введите символы которые хотите удалить', ['l', 'd']);
-let NO_OF_CHARS = 256;
 
-function getcountarray(removeSymbol) {
-    const count = new Array(NO_OF_CHARS).fill(0);
+// Первый варинат, более непонятный
 
-    for (let i = 0; i < removeSymbol.length; i++) {
-        count[removeSymbol.charCodeAt(i)]++;
-    }
-    return count;
-}
+// let NO_OF_CHARS = 256;
 
-function removeDirtyChars(baseString, removeSymbol) {
-    const count = getcountarray(removeSymbol);
-    let res = '';
-    let num = 0;
+// function getcountarray(removeSymbol) {
+//     const count = new Array(NO_OF_CHARS).fill(0);
 
-    while (num < baseString.length) {
-        const temp = baseString[num];
-        if (count[temp.charCodeAt(0)] == 0) {
-            res = res.concat(temp);
+//     for (let i = 0; i < removeSymbol.length; i++) {
+//         count[removeSymbol.charCodeAt(i)]++;
+//     }
+//     return count;
+// }
+
+// function removeDirtyChars(baseString, removeSymbol) {
+//     const count = getcountarray(removeSymbol);
+//     let res = '';
+//     let num = 0;
+
+//     while (num < baseString.length) {
+//         const temp = baseString[num];
+//         if (count[temp.charCodeAt(0)] == 0) {
+//             res = res.concat(temp);
+//         }
+//         num++;
+//     }
+//     return res;
+// }
+
+// Второй вариант, более упрощенный
+
+function removeChars(baseString, removeSymbol){
+ 
+    
+    for(let i of removeSymbol){
+
+         while(baseString.indexOf(i) != -1){
+ 
+            let itr = baseString.indexOf(i);
+            baseString = baseString.replace(i, '');
+
         }
-        num++;
     }
-    return res;
+     return baseString
 }
 
-alert(removeDirtyChars(baseString, removeSymbol));
-
+alert(removeChars(baseString, removeSymbol));
