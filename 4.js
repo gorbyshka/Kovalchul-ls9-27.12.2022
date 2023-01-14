@@ -4,52 +4,23 @@
 // 'func(" hello world", ['l', 'd'])' поверне нам "heo wor".
 // Вихідний рядок та символи для видалення задає користувач.
 
+// eslint-disable-next-line no-alert, no-undef
 const baseString = prompt('Введите строку', 'hello world');
+// eslint-disable-next-line no-alert, no-undef
 const removeSymbol = prompt('Введите символы которые хотите удалить', ['l', 'd']);
 
-// Первый варинат, более непонятный
-
-// let NO_OF_CHARS = 256;
-
-// function getcountarray(removeSymbol) {
-//     const count = new Array(NO_OF_CHARS).fill(0);
-
-//     for (let i = 0; i < removeSymbol.length; i++) {
-//         count[removeSymbol.charCodeAt(i)]++;
-//     }
-//     return count;
-// }
-
-// function removeDirtyChars(baseString, removeSymbol) {
-//     const count = getcountarray(removeSymbol);
-//     let res = '';
-//     let num = 0;
-
-//     while (num < baseString.length) {
-//         const temp = baseString[num];
-//         if (count[temp.charCodeAt(0)] == 0) {
-//             res = res.concat(temp);
-//         }
-//         num++;
-//     }
-//     return res;
-// }
-
-// Второй вариант, более упрощенный
-
-function removeChars(baseString, removeSymbol){
- 
-    
-    for(let i of removeSymbol){
-
-         while(baseString.indexOf(i) != -1){
- 
-            let itr = baseString.indexOf(i);
-            baseString = baseString.replace(i, '');
-
-        }
+// eslint-disable-next-line no-shadow
+function removeChars(baseString, removeSymbol) {
+  const newStr = baseString.split('');
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < removeSymbol.length; i++) {
+    // eslint-disable-next-line max-len
+    while (newStr.indexOf(removeSymbol[i]) !== -1) {
+      newStr.splice(newStr.indexOf(removeSymbol[i]), 1);
     }
-     return baseString
+  }
+  return newStr.join('');
 }
 
+// eslint-disable-next-line no-alert, no-undef
 alert(removeChars(baseString, removeSymbol));
